@@ -1,0 +1,71 @@
+<html>
+<title> Ejercicio 5.5.10 </title>
+<head> Binary Calculator </head>
+<body>
+  <p></p>
+  <div id="display"> </div>
+  <p></p>
+  <a href="javascript:one()"> 1 </a>
+  <a href="javascript:zero()"> 0 </a>
+  <a href="javascript:add()"> + </a>
+  <a href="javascript:equal()"> = </a>
+
+  <style>
+    #display {
+      width: 150px;
+      height: 30px;
+      border: 2px solid black;
+      position: relative;
+      font-size: 1.5em;
+      text-align: center;
+    }
+    a {
+      width: 30px;
+      height: 30px;
+      border: 2px solid black;
+      margin-left: 15px;
+    }
+  </style>
+
+  <script>
+    var display = document.getElementById('display');
+    var op1;
+    function one() {
+      display.innerHTML = "1";
+    };
+
+    function zero() {
+      display.innerHTML = "0";
+    };
+
+    function add() {
+      op1 = display.innerHTML;
+      if(op1 === " " || op1 === "Error"){
+        display.innerHTML = "Error";
+      }else{
+        display.innerHTML = "";
+      }
+    };
+
+    function equal() {
+      var op2 = display.innerHTML;
+      var result;
+
+      if(op2 === " " || op2 === "Error" || op2 === "" || op1 === undefined){
+        display.innerHTML = "Error";
+      }else{
+        if(op1 == "0" && op2 == "0"){
+          result = "0";
+        } else if(op1 == "0" && op2 == "1"){
+          result = "1";
+        } else if(op1 == "1" && op2 == "0"){
+          result = "1";
+        }else if(op1 == "1" && op2 == "1"){
+          result = "0";
+        }
+        display.innerHTML = result;
+      }
+    };
+  </script>
+</body>
+</html>
